@@ -22,7 +22,7 @@ document.querySelector("#quote-form")?.addEventListener("submit", (event) => {
     `Vehículo: ${data.get("vehicle")}`,
     `Necesito: ${data.get("service")}`,
   ].join("\n");
-  window.open(`https://wa.me/56988144503?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer");
+  window.open(`https://wa.me/56984484274?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer");
 });
 
 document.querySelector("#year").textContent = new Date().getFullYear();
