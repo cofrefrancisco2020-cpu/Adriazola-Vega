@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 20" role="img" aria-label="Bandera de Chile">
+  <path fill="#fff" d="M0 0h30v10H0z"/>
+  <path fill="#d52b1e" d="M0 10h30v10H0z"/>
+  <path fill="#0039a6" d="M0 0h10v10H0z"/>
+  <path fill="#fff" d="m5 1.65.8 2.46h2.59L6.3 5.63l.8 2.46L5 6.57 2.9 8.09l.8-2.46-2.09-1.52H4.2z"/>
+</svg>
