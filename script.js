@@ -16,28 +16,28 @@ const translations = {
   es: {
     seo: {
       title: "Taller mecánico en Coyhaique | Adriazola 4WD",
-      description: "Taller mecánico multimarca en Coyhaique. Diagnóstico, mantención, reparación de autos, camionetas, 4x4, UTV y motores de motocicleta. Cotiza por WhatsApp.",
-      ogDescription: "Diagnóstico, mantención y reparación multimarca para autos, camionetas, 4x4, UTV y motocicletas en Coyhaique.",
+      description: "Taller mecánico en Coyhaique especializado en soluciones y reparación de sistemas DPF y AdBlue, diagnóstico electrónico, mantención, 4x4, UTV y motores de motocicleta.",
+      ogDescription: "Soluciones y reparación de sistemas DPF y AdBlue, diagnóstico electrónico y mecánica multimarca en Coyhaique.",
     },
     brandTag: "Servicio técnico · Coyhaique",
-    nav: ["Servicios", "Trabajos", "Proceso", "Opiniones", "Contacto"],
+    nav: ["Servicios", "Trabajos", "Especialidad", "Opiniones", "Contacto"],
     navCta: "Cotizar trabajo",
     hero: {
       eyebrow: "Servicio técnico · repuestos · equipamiento",
       title: "Mecánica que<br><em>responde.</em>",
-      copy: "Taller mecánico y 4WD en Coyhaique. Diagnosticamos, reparamos y equipamos vehículos y máquinas con trabajo técnico realizado en nuestro propio taller.",
+      copy: "Taller mecánico y 4WD en Coyhaique. Especialistas en soluciones y reparación de sistemas DPF y AdBlue, diagnóstico electrónico y mecánica multimarca.",
       primary: "Cotizar mi vehículo",
       secondary: "Ver trabajos reales",
       facts: [
         ["Servicio", "Mecánica y diagnóstico"],
-        ["Repuestos", "Soluciones para tu vehículo"],
+        ["DPF + AdBlue", "Diagnóstico y reparación"],
         ["4WD", "Equipamiento y máquinas"],
       ],
     },
     manifesto: {
       kicker: "Hecho en Coyhaique",
       title: "Primero entendemos la falla.<br>Después la resolvemos.",
-      copy: "En Adriazola 4WD trabajamos con diagnóstico, mecánica, repuestos y equipamiento para autos, camionetas y máquinas. Atendemos desde mantenciones hasta reparaciones mayores.",
+      copy: "En Adriazola 4WD resolvemos fallas mecánicas y electrónicas en autos, camionetas y máquinas. Nuestra especialidad incluye diagnóstico y reparación de sistemas DPF y AdBlue, además de mantenciones y reparaciones mayores.",
       location: "Encuéntranos en",
     },
     services: {
@@ -52,6 +52,28 @@ const translations = {
         ["Electricidad", "Detección de fallas, iluminación y equipamiento eléctrico para tu vehículo."],
         ["4x4, UTV y modificaciones", "Servicio, equipamiento y fabricación para máquinas recreativas y de trabajo."],
       ],
+    },
+    specialty: {
+      kicker: "Especialidad en Coyhaique",
+      title: "Soluciones para sistemas<br><em>DPF y AdBlue.</em>",
+      intro: "Diagnosticamos la causa de la falla y trabajamos sobre el sistema con equipamiento especializado. Una solución técnica pensada para vehículos diésel expuestos al frío, trayectos exigentes y las condiciones de la Patagonia.",
+      badge: ["DPF", "AdBlue · SCR · ECU"],
+      systems: [
+        ["Sistema DPF", "Diagnóstico, regeneración asistida, revisión de sensores y reparación de fallas del filtro de partículas."],
+        ["AdBlue y SCR", "Evaluación de dosificación, sensores, bomba, inyector y códigos de falla del sistema de reducción de emisiones."],
+        ["EGR y admisión", "Revisión técnica del sistema de recirculación, actuadores y componentes asociados al control de emisiones."],
+        ["Diagnóstico ECU", "Lectura electrónica, respaldo y calibración técnica de unidades de control con software especializado."],
+      ],
+      proof: ["Programación y respaldo con equipamiento especializado"],
+      proofAlts: ["Programación técnica de sistemas AdBlue y DPF con Alientech"],
+      allianceLabel: "Representación técnica en Aysén",
+      allianceTitle: "Adriazola 4WD trabaja junto a EcuLab",
+      allianceCopy: "Como representante técnico regional de EcuLab, acercamos a Coyhaique su respaldo especializado en electrónica automotriz y calibración ECU.",
+      allianceLink: "Conocer EcuLab",
+      cta: "Consultar por DPF o AdBlue",
+      whatsapp: "Hola, quisiera consultar por un diagnóstico de sistema DPF o AdBlue.",
+      imageAlt: "Computador con software de diagnóstico y programación automotriz en Adriazola 4WD",
+      logoAlt: "Logo de EcuLab, aliado técnico de Adriazola 4WD",
     },
     work: {
       kicker: "Dentro del taller",
@@ -146,28 +168,28 @@ const translations = {
   en: {
     seo: {
       title: "Auto repair shop in Coyhaique | Adriazola 4WD",
-      description: "Multi-brand auto repair shop in Coyhaique. Diagnostics, maintenance and repair for cars, pickup trucks, 4x4s, UTVs and motorcycle engines. Request a quote on WhatsApp.",
-      ogDescription: "Diagnostics, maintenance and multi-brand repairs for cars, pickup trucks, 4x4s, UTVs and motorcycles in Coyhaique.",
+      description: "Auto repair shop in Coyhaique specializing in DPF and AdBlue system solutions and repairs, electronic diagnostics, maintenance, 4x4s, UTVs and motorcycle engines.",
+      ogDescription: "DPF and AdBlue system solutions and repairs, electronic diagnostics and multi-brand mechanical service in Coyhaique.",
     },
     brandTag: "Technical service · Coyhaique",
-    nav: ["Services", "Our work", "Process", "Reviews", "Contact"],
+    nav: ["Services", "Our work", "Specialty", "Reviews", "Contact"],
     navCta: "Request a quote",
     hero: {
       eyebrow: "Technical service · parts · equipment",
       title: "Mechanics you<br><em>can rely on.</em>",
-      copy: "Auto repair and 4WD workshop in Coyhaique. We diagnose, repair and equip vehicles and machines, with technical work carried out in our own workshop.",
+      copy: "Auto repair and 4WD workshop in Coyhaique. Specialists in DPF and AdBlue system solutions and repairs, electronic diagnostics and multi-brand mechanical service.",
       primary: "Request a quote",
       secondary: "See real work",
       facts: [
         ["Service", "Mechanical work and diagnostics"],
-        ["Parts", "Solutions for your vehicle"],
+        ["DPF + AdBlue", "Diagnostics and repair"],
         ["4WD", "Equipment and machines"],
       ],
     },
     manifesto: {
       kicker: "Built in Coyhaique",
       title: "First we understand the fault.<br>Then we fix it.",
-      copy: "At Adriazola 4WD we provide diagnostics, mechanical work, parts and equipment for cars, pickup trucks and machines. From routine maintenance to major repairs.",
+      copy: "At Adriazola 4WD we solve mechanical and electronic faults in cars, pickup trucks and machines. Our specialty includes DPF and AdBlue system diagnostics and repairs, as well as maintenance and major repairs.",
       location: "Find us at",
     },
     services: {
@@ -182,6 +204,28 @@ const translations = {
         ["Electrical systems", "Fault finding, lighting and electrical equipment for your vehicle."],
         ["4x4, UTV and modifications", "Service, equipment and fabrication for recreational and work machines."],
       ],
+    },
+    specialty: {
+      kicker: "Specialist service in Coyhaique",
+      title: "Solutions for<br><em>DPF and AdBlue systems.</em>",
+      intro: "We diagnose the cause of the fault and work on the system with specialist equipment. A technical solution for diesel vehicles exposed to cold weather, demanding journeys and Patagonian conditions.",
+      badge: ["DPF", "AdBlue · SCR · ECU"],
+      systems: [
+        ["DPF system", "Diagnostics, assisted regeneration, sensor inspection and repair of diesel particulate filter faults."],
+        ["AdBlue and SCR", "Assessment of dosing, sensors, pump, injector and fault codes in the emissions reduction system."],
+        ["EGR and intake", "Technical inspection of the recirculation system, actuators and components related to emissions control."],
+        ["ECU diagnostics", "Electronic reading, backup and technical calibration of control units with specialist software."],
+      ],
+      proof: ["Programming and backup with specialist equipment"],
+      proofAlts: ["Technical programming of AdBlue and DPF systems with Alientech"],
+      allianceLabel: "Technical representation in Aysén",
+      allianceTitle: "Adriazola 4WD works with EcuLab",
+      allianceCopy: "As an EcuLab regional technical representative, we bring its specialist automotive electronics and ECU calibration support to Coyhaique.",
+      allianceLink: "Visit EcuLab",
+      cta: "Ask about DPF or AdBlue",
+      whatsapp: "Hello, I would like to ask about a DPF or AdBlue system diagnosis.",
+      imageAlt: "Laptop running automotive diagnostic and programming software at Adriazola 4WD",
+      logoAlt: "EcuLab logo, technical partner of Adriazola 4WD",
     },
     work: {
       kicker: "Inside the workshop",
@@ -276,28 +320,28 @@ const translations = {
   de: {
     seo: {
       title: "Autowerkstatt in Coyhaique | Adriazola 4WD",
-      description: "Mehrmarken-Autowerkstatt in Coyhaique. Diagnose, Wartung und Reparatur von Pkw, Pick-ups, 4x4, UTV und Motorradmotoren. Angebot per WhatsApp anfragen.",
-      ogDescription: "Diagnose, Wartung und Reparaturen für Pkw, Pick-ups, 4x4, UTV und Motorräder in Coyhaique.",
+      description: "Autowerkstatt in Coyhaique, spezialisiert auf Diagnose und Reparatur von DPF- und AdBlue-Systemen, Elektronikdiagnose, Wartung, 4x4, UTV und Motorradmotoren.",
+      ogDescription: "Lösungen und Reparaturen für DPF- und AdBlue-Systeme, Elektronikdiagnose und Mehrmarken-Service in Coyhaique.",
     },
     brandTag: "Technischer Service · Coyhaique",
-    nav: ["Leistungen", "Unsere Arbeit", "Ablauf", "Bewertungen", "Kontakt"],
+    nav: ["Leistungen", "Unsere Arbeit", "Spezialgebiet", "Bewertungen", "Kontakt"],
     navCta: "Angebot anfragen",
     hero: {
       eyebrow: "Technischer Service · Ersatzteile · Ausstattung",
       title: "Mechanik, auf die<br><em>Verlass ist.</em>",
-      copy: "Autowerkstatt und 4WD-Service in Coyhaique. Wir diagnostizieren, reparieren und rüsten Fahrzeuge und Maschinen in unserer eigenen Werkstatt aus.",
+      copy: "Autowerkstatt und 4WD-Service in Coyhaique. Spezialisiert auf Lösungen und Reparaturen für DPF- und AdBlue-Systeme, Elektronikdiagnose und Mehrmarken-Service.",
       primary: "Angebot anfragen",
       secondary: "Echte Arbeiten ansehen",
       facts: [
         ["Service", "Mechanik und Diagnose"],
-        ["Ersatzteile", "Lösungen für Ihr Fahrzeug"],
+        ["DPF + AdBlue", "Diagnose und Reparatur"],
         ["4WD", "Ausstattung und Maschinen"],
       ],
     },
     manifesto: {
       kicker: "Arbeit aus Coyhaique",
       title: "Zuerst verstehen wir den Fehler.<br>Dann beheben wir ihn.",
-      copy: "Adriazola 4WD bietet Diagnose, Mechanik, Ersatzteile und Ausstattung für Pkw, Pick-ups und Maschinen. Von der regelmäßigen Wartung bis zur umfangreichen Reparatur.",
+      copy: "Adriazola 4WD behebt mechanische und elektronische Fehler an Pkw, Pick-ups und Maschinen. Unser Spezialgebiet umfasst Diagnose und Reparatur von DPF- und AdBlue-Systemen sowie Wartung und umfangreiche Reparaturen.",
       location: "Sie finden uns in",
     },
     services: {
@@ -312,6 +356,28 @@ const translations = {
         ["Fahrzeugelektrik", "Fehlersuche, Beleuchtung und elektrische Ausstattung für Ihr Fahrzeug."],
         ["4x4, UTV und Umbauten", "Service, Ausstattung und Anfertigungen für Freizeit- und Arbeitsfahrzeuge."],
       ],
+    },
+    specialty: {
+      kicker: "Spezialgebiet in Coyhaique",
+      title: "Lösungen für<br><em>DPF- und AdBlue-Systeme.</em>",
+      intro: "Wir diagnostizieren die Fehlerursache und bearbeiten das System mit Spezialausrüstung. Eine technische Lösung für Dieselfahrzeuge, die Kälte, anspruchsvollen Strecken und den Bedingungen Patagoniens ausgesetzt sind.",
+      badge: ["DPF", "AdBlue · SCR · ECU"],
+      systems: [
+        ["DPF-System", "Diagnose, unterstützte Regeneration, Sensorprüfung und Reparatur von Fehlern am Dieselpartikelfilter."],
+        ["AdBlue und SCR", "Prüfung von Dosierung, Sensoren, Pumpe, Injektor und Fehlercodes des Abgasnachbehandlungssystems."],
+        ["EGR und Ansaugung", "Technische Prüfung des Abgasrückführungssystems, der Stellglieder und der zugehörigen Komponenten."],
+        ["ECU-Diagnose", "Elektronisches Auslesen, Datensicherung und fachgerechte Kalibrierung von Steuergeräten mit Spezialsoftware."],
+      ],
+      proof: ["Programmierung und Datensicherung mit Spezialausrüstung"],
+      proofAlts: ["Technische Programmierung von AdBlue- und DPF-Systemen mit Alientech"],
+      allianceLabel: "Technische Vertretung in Aysén",
+      allianceTitle: "Adriazola 4WD arbeitet mit EcuLab zusammen",
+      allianceCopy: "Als regionaler technischer Vertreter von EcuLab bringen wir spezialisierten Support für Fahrzeugelektronik und ECU-Kalibrierung nach Coyhaique.",
+      allianceLink: "EcuLab kennenlernen",
+      cta: "DPF oder AdBlue anfragen",
+      whatsapp: "Guten Tag, ich möchte eine Diagnose meines DPF- oder AdBlue-Systems anfragen.",
+      imageAlt: "Laptop mit Software für Fahrzeugdiagnose und Steuergeräteprogrammierung bei Adriazola 4WD",
+      logoAlt: "Logo von EcuLab, technischer Partner von Adriazola 4WD",
     },
     work: {
       kicker: "In der Werkstatt",
@@ -480,6 +546,24 @@ const applyLanguage = (language, updateUrl = false) => {
   setHtml(".services .section-heading h2", t.services.title);
   setText(".services .section-heading > p", t.services.intro);
   setCards(".service-card", t.services.cards, "h3", "p");
+
+  setText(".emissions .kicker", t.specialty.kicker);
+  setHtml(".emissions h2", t.specialty.title);
+  setText(".emissions-lead", t.specialty.intro);
+  setText(".emissions-badge strong", t.specialty.badge[0]);
+  setText(".emissions-badge span", t.specialty.badge[1]);
+  setCards(".systems-grid article", t.specialty.systems, "h3", "p");
+  setText(".diagnostic-proof figcaption", t.specialty.proof);
+  document.querySelectorAll(".diagnostic-proof img").forEach((image, index) => image.setAttribute("alt", t.specialty.proofAlts[index]));
+  setText(".technical-alliance small", t.specialty.allianceLabel);
+  setText(".technical-alliance h3", t.specialty.allianceTitle);
+  setText(".technical-alliance p", t.specialty.allianceCopy);
+  setLeadingText(".technical-alliance a", t.specialty.allianceLink);
+  setLeadingText(".emissions-cta", t.specialty.cta);
+  document.querySelector(".emissions-media > img")?.setAttribute("alt", t.specialty.imageAlt);
+  document.querySelector(".technical-alliance > img")?.setAttribute("alt", t.specialty.logoAlt);
+  const specialtyLink = document.querySelector(".emissions-cta");
+  if (specialtyLink) specialtyLink.href = `https://wa.me/56984484274?text=${encodeURIComponent(t.specialty.whatsapp)}`;
 
   setText(".work .kicker", t.work.kicker);
   setHtml(".work .section-heading h2", t.work.title);

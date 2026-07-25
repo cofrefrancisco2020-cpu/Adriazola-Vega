@@ -23,8 +23,8 @@ img { display: block; max-width: 100%; }
   background: linear-gradient(180deg, rgba(5, 10, 13, .88), transparent);
 }
 .brand { display: flex; align-items: center; gap: 13px; }
-.brand img { width: 76px; height: 60px; object-fit: contain; }
-.footer-brand img { width: 96px; height: 76px; object-fit: contain; }
+.brand img { width: 92px; height: 70px; object-fit: contain; }
+.footer-brand img { width: 126px; height: 100px; object-fit: contain; }
 .brand span, .footer-brand span { display: grid; gap: 3px; }
 .brand strong, .footer-brand strong { font-size: 13px; letter-spacing: .13em; }
 .brand small, .footer-brand small { font-size: 10px; letter-spacing: .11em; text-transform: uppercase; opacity: .62; }
@@ -96,6 +96,40 @@ h2 { font-size: clamp(42px, 5vw, 78px); line-height: .98; letter-spacing: -.055e
 .service-card h3 { margin-top: 100px; margin-bottom: 15px; font-size: 24px; letter-spacing: -.025em; }
 .service-card p { font-size: 14px; line-height: 1.65; color: #6b7478; max-width: 300px; }
 .service-card:hover p { color: rgba(255,255,255,.66); }
+
+.emissions {
+  display: grid; grid-template-columns: minmax(360px, .9fr) minmax(520px, 1.1fr); gap: clamp(44px, 7vw, 112px);
+  color: white; background: #0d1215;
+}
+.emissions-media { position: relative; min-height: 720px; overflow: hidden; background: #1b2023; }
+.emissions-media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(8,12,14,.72), transparent 45%); pointer-events: none; }
+.emissions-media img { width: 100%; height: 100%; object-fit: cover; }
+.emissions-badge { position: absolute; z-index: 2; left: 0; bottom: 0; min-width: 230px; padding: 23px 28px; display: grid; gap: 5px; color: white; background: var(--blue); }
+.emissions-badge strong { font-size: 35px; line-height: 1; letter-spacing: -.04em; }
+.emissions-badge span { font-size: 9px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; opacity: .75; }
+.emissions-content { align-self: center; }
+.emissions .kicker { color: var(--ice); }
+.emissions h2 { font-size: clamp(44px, 5vw, 75px); }
+.emissions h2 em { color: var(--ice); font-family: Georgia, serif; font-weight: 400; letter-spacing: -.045em; }
+.emissions-lead { max-width: 690px; margin: 30px 0 38px; color: rgba(255,255,255,.65); font-size: 17px; line-height: 1.75; }
+.systems-grid { display: grid; grid-template-columns: repeat(2, 1fr); border-top: 1px solid rgba(255,255,255,.16); border-left: 1px solid rgba(255,255,255,.16); }
+.systems-grid article { min-height: 205px; padding: 24px; border-right: 1px solid rgba(255,255,255,.16); border-bottom: 1px solid rgba(255,255,255,.16); }
+.systems-grid article > span { color: var(--ice); font: italic 12px Georgia, serif; }
+.systems-grid h3 { margin: 45px 0 11px; font-size: 21px; }
+.systems-grid p { margin: 0; color: rgba(255,255,255,.52); font-size: 13px; line-height: 1.65; }
+.diagnostic-proof { margin-top: 26px; }
+.diagnostic-proof figure { position: relative; height: 250px; margin: 0; overflow: hidden; background: #1b2023; }
+.diagnostic-proof img { width: 100%; height: 100%; object-fit: cover; }
+.diagnostic-proof img { object-position: center 58%; }
+.diagnostic-proof figcaption { position: absolute; inset: auto 0 0; padding: 45px 17px 14px; color: white; background: linear-gradient(transparent, rgba(6,10,12,.86)); font-size: 9px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+.technical-alliance { margin-top: 26px; padding: 28px; display: grid; grid-template-columns: 1fr 165px; gap: 28px; align-items: center; background: #f0eee8; color: var(--ink); }
+.alliance-copy small { color: var(--blue); font-size: 9px; font-weight: 900; letter-spacing: .16em; text-transform: uppercase; }
+.alliance-copy h3 { margin: 8px 0 10px; font-size: 23px; letter-spacing: -.025em; }
+.alliance-copy p { margin-bottom: 16px; color: #596267; font-size: 13px; line-height: 1.6; }
+.alliance-copy a { padding-bottom: 7px; border-bottom: 1px solid var(--line); font-size: 10px; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; }
+.alliance-copy a span { margin-left: 9px; color: var(--blue); }
+.technical-alliance > img { width: 100%; max-height: 86px; object-fit: contain; }
+.emissions-cta { margin-top: 26px; width: min(100%, 360px); }
 
 .work { color: white; background: var(--ink); }
 .section-heading.light .kicker { color: var(--ice); }
@@ -191,7 +225,7 @@ footer { color: white; background: #070c0f; padding: 70px clamp(24px, 7vw, 120px
   nav a { padding: 8px 0; }
   .menu-button { display: block; z-index: 2; }
   .header-actions { margin-left: auto; }
-  .brand img { width: 58px; height: 46px; }
+  .brand img { width: 70px; height: 54px; }
   .brand small { display: none; }
   .hero { min-height: 720px; align-items: flex-end; padding-bottom: 170px; }
   .hero-content { margin: 0 24px; padding: 0; width: auto; }
@@ -199,8 +233,9 @@ footer { color: white; background: #070c0f; padding: 70px clamp(24px, 7vw, 120px
   .hero-shade { background: linear-gradient(0deg, rgba(5,10,13,.98) 5%, rgba(5,10,13,.5) 70%, rgba(5,10,13,.25)); }
   .hero-facts { left: 0; right: 0; overflow-x: auto; }
   .hero-facts div { min-width: 145px; padding: 18px 20px; }
-  .manifesto, .section-heading, .quote, .visit, .reviews-heading { grid-template-columns: 1fr; }
+  .manifesto, .section-heading, .emissions, .quote, .visit, .reviews-heading { grid-template-columns: 1fr; }
   .manifesto, .section-heading { gap: 42px; }
+  .emissions-media { min-height: 520px; }
   .service-grid { grid-template-columns: repeat(2, 1fr); }
   .reviews-heading { gap: 42px; }
   .visit iframe { min-height: 390px; }
@@ -225,6 +260,14 @@ footer { color: white; background: #070c0f; padding: 70px clamp(24px, 7vw, 120px
   .service-grid { grid-template-columns: 1fr; }
   .service-card { min-height: 250px; }
   .service-card h3 { margin-top: 68px; }
+  .emissions { gap: 48px; }
+  .emissions-media { min-height: 400px; }
+  .systems-grid { grid-template-columns: 1fr; }
+  .systems-grid article { min-height: 0; }
+  .systems-grid h3 { margin-top: 30px; }
+  .diagnostic-proof figure { height: 230px; }
+  .technical-alliance { grid-template-columns: 1fr; }
+  .technical-alliance > img { width: 150px; justify-self: start; }
   .project-grid { grid-template-columns: 1fr; }
   .project, .project.wide { grid-column: auto; height: 390px; }
   .work-footer { align-items: flex-start; flex-direction: column; gap: 24px; }
