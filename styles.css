@@ -33,6 +33,13 @@ nav > a { font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transfo
 .nav-cta { border: 1px solid rgba(255,255,255,.55); padding: 13px 18px; transition: .25s ease; }
 .nav-cta:hover { background: white; color: var(--ink); }
 .header-actions { position: relative; z-index: 3; display: flex; align-items: center; gap: 7px; }
+.instagram-header-link {
+  width: 43px; height: 43px; display: grid; place-items: center;
+  background: rgba(7,12,15,.62); border: 1px solid rgba(255,255,255,.34);
+  transition: transform .2s ease, background .2s ease, border-color .2s ease;
+}
+.instagram-header-link img { width: 23px; height: 23px; }
+.instagram-header-link:hover { transform: translateY(-2px); background: rgba(255,255,255,.14); border-color: rgba(255,255,255,.62); }
 .language-picker { position: relative; }
 .language-current { height: 43px; min-width: 78px; padding: 0 11px; display: flex; align-items: center; justify-content: center; gap: 8px; color: white; background: rgba(7,12,15,.62); border: 1px solid rgba(255,255,255,.34); cursor: pointer; }
 .language-current img, .language-menu img { width: 23px; height: 15px; object-fit: cover; box-shadow: 0 0 0 1px rgba(255,255,255,.18); }
@@ -289,4 +296,56 @@ footer { color: white; background: #070c0f; padding: 70px clamp(24px, 7vw, 120px
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
   .reveal { opacity: 1; transform: none; }
+}
+
+/* Instagram: anuncio editorial inspirado en el lenguaje industrial de Adriazola 4WD. */
+body.instagram-popup-open { overflow: hidden; }
+.instagram-popup[hidden] { display: none; }
+.instagram-popup { position: fixed; z-index: 200; inset: 0; display: grid; place-items: center; padding: 24px; }
+.instagram-popup-backdrop { position: absolute; inset: 0; width: 100%; height: 100%; padding: 0; border: 0; background: rgba(3,7,9,.68); backdrop-filter: blur(3px); cursor: default; }
+.instagram-popup-card {
+  position: relative; z-index: 1; width: min(820px, calc(100vw - 48px)); min-height: 480px;
+  display: grid; grid-template-columns: 46% 54%; overflow: hidden; color: white; background: #0a0f12;
+  border: 1px solid rgba(255,255,255,.18); box-shadow: 0 34px 90px rgba(0,0,0,.65), 0 0 0 1px rgba(237,28,36,.16) inset;
+  opacity: 0; transform: translateY(18px) scale(.985); transition: opacity .32s ease, transform .32s ease;
+}
+.instagram-popup.is-open .instagram-popup-card { opacity: 1; transform: translateY(0) scale(1); }
+.instagram-popup-card::before { content: ""; position: absolute; z-index: 5; inset: 0 0 auto; height: 4px; background: linear-gradient(90deg,#feda75,#fa7e1e,#d62976,#962fbf,#4f5bd5); }
+.instagram-popup-close {
+  position: absolute; z-index: 8; right: 15px; top: 15px; width: 38px; height: 38px; display: grid; place-items: center;
+  border-radius: 50%; border: 1px solid rgba(255,255,255,.28); color: white; background: rgba(4,7,9,.82); font-size: 27px; line-height: 1; cursor: pointer;
+}
+.instagram-popup-close:hover { background: var(--ice); border-color: var(--ice); }
+.instagram-popup-visual { position: relative; min-height: 480px; overflow: hidden; background: #171a1c; }
+.instagram-popup-visual::after { content: ""; position: absolute; z-index: 2; right: -35px; top: -5%; width: 77px; height: 110%; background: #0a0f12; transform: skewX(-6deg); }
+.instagram-popup-visual img { width: 100%; height: 100%; min-height: 480px; object-fit: cover; object-position: center; }
+.instagram-popup-copy { position: relative; z-index: 3; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; padding: 54px 54px 42px 44px; }
+.instagram-popup-copy::before { content: ""; position: absolute; inset: auto 0 0 auto; width: 190px; height: 190px; background: radial-gradient(circle at bottom right,rgba(237,28,36,.18),transparent 66%); pointer-events: none; }
+.instagram-popup-kicker { display: flex; align-items: center; gap: 11px; color: #f3f0ea; font-size: 11px; font-weight: 800; letter-spacing: .2em; text-transform: uppercase; }
+.instagram-popup-kicker img { width: 34px; height: 34px; }
+.instagram-popup-copy h2 { margin: 22px 0 17px; font-family: Arial Narrow, Arial, sans-serif; font-size: 56px; font-weight: 800; line-height: .86; letter-spacing: -.045em; text-transform: uppercase; }
+.instagram-popup-copy h2 em { color: var(--ice); font-family: Georgia, serif; font-weight: 400; text-transform: none; }
+.instagram-popup-copy p { margin: 0; color: rgba(255,255,255,.72); font-size: 14px; line-height: 1.65; }
+.instagram-popup-copy > strong { margin-top: 17px; font-size: 13px; letter-spacing: .05em; }
+.instagram-popup-cta { margin-top: 24px; width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 17px 18px; color: white; background: var(--ice); font-size: 12px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+.instagram-popup-cta:hover { background: #ff353b; }
+.instagram-popup-cta span { font-size: 18px; }
+.instagram-popup-copy > small { margin-top: 12px; color: rgba(255,255,255,.42); font-size: 10px; }
+
+@media (max-width: 620px) {
+  .instagram-header-link { width: 40px; height: 43px; }
+  .instagram-header-link img { width: 22px; height: 22px; }
+  .instagram-popup { padding: 12px; }
+  .instagram-popup-card { width: min(390px, calc(100vw - 24px)); min-height: 0; max-height: calc(100dvh - 24px); display: block; overflow-y: auto; }
+  .instagram-popup-visual { height: 280px; min-height: 0; }
+  .instagram-popup-visual::after { display: none; }
+  .instagram-popup-visual img { height: 100%; min-height: 0; object-position: center 43%; }
+  .instagram-popup-copy { padding: 28px 25px 24px; }
+  .instagram-popup-kicker img { width: 29px; height: 29px; }
+  .instagram-popup-copy h2 { margin: 14px 0 11px; font-size: 42px; }
+  .instagram-popup-copy p { font-size: 13px; line-height: 1.5; }
+  .instagram-popup-copy > strong { margin-top: 11px; }
+  .instagram-popup-cta { margin-top: 17px; padding: 14px 16px; }
+  .instagram-popup-copy > small { display: none; }
+  .instagram-popup-close { top: 12px; right: 12px; }
 }

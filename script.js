@@ -5,6 +5,11 @@ const languageCurrent = document.querySelector(".language-current");
 const languageMenu = document.querySelector(".language-menu");
 const languageButtons = document.querySelectorAll("[data-language]");
 const quoteForm = document.querySelector("#quote-form");
+const instagramHeaderLink = document.querySelector(".instagram-header-link");
+const instagramPopup = document.querySelector(".instagram-popup");
+const instagramPopupCard = document.querySelector(".instagram-popup-card");
+const instagramPopupClose = document.querySelector(".instagram-popup-close");
+const instagramPopupBackdrop = document.querySelector(".instagram-popup-backdrop");
 
 const languageMeta = {
   es: { code: "ES", flag: "./assets/flag-cl.svg" },
@@ -131,6 +136,15 @@ const translations = {
       days: ["Lunes — jueves", "Viernes", "Sábado — domingo"],
       closed: "Cerrado",
       button: "Abrir en Google Maps",
+    },
+    instagram: {
+      header: "Instagram de Mecánica Adriazola",
+      close: "Cerrar aviso de Instagram",
+      kicker: "Nuevo canal",
+      title: "Síguenos en<br><em>Instagram.</em>",
+      copy: "Trabajos reales, consejos útiles para tu vehículo y novedades desde nuestro taller en Coyhaique.",
+      cta: "Ver Instagram",
+      note: "Al hacer clic, abrirás nuestro perfil oficial.",
     },
     footer: {
       tag: "Servicio técnico · repuestos · equipamiento",
@@ -284,6 +298,15 @@ const translations = {
       closed: "Closed",
       button: "Open in Google Maps",
     },
+    instagram: {
+      header: "Mecánica Adriazola on Instagram",
+      close: "Close Instagram announcement",
+      kicker: "New channel",
+      title: "Follow us on<br><em>Instagram.</em>",
+      copy: "Real workshop jobs, useful advice for your vehicle and updates from our workshop in Coyhaique.",
+      cta: "View Instagram",
+      note: "Click to open our official profile.",
+    },
     footer: {
       tag: "Technical service · parts · equipment",
       links: ["Services", "Our work", "Contact"],
@@ -436,6 +459,15 @@ const translations = {
       closed: "Geschlossen",
       button: "In Google Maps öffnen",
     },
+    instagram: {
+      header: "Mecánica Adriazola auf Instagram",
+      close: "Instagram-Hinweis schließen",
+      kicker: "Neuer Kanal",
+      title: "Folgen Sie uns auf<br><em>Instagram.</em>",
+      copy: "Echte Werkstattarbeiten, nützliche Tipps für Ihr Fahrzeug und Neuigkeiten aus unserer Werkstatt in Coyhaique.",
+      cta: "Instagram öffnen",
+      note: "Mit einem Klick öffnen Sie unser offizielles Profil.",
+    },
     footer: {
       tag: "Technischer Service · Ersatzteile · Ausstattung",
       links: ["Leistungen", "Unsere Arbeit", "Kontakt"],
@@ -472,6 +504,30 @@ const translations = {
 };
 
 let currentLanguage = "es";
+let instagramPopupTimer;
+let instagramPopupPreviousFocus;
+
+const showInstagramPopup = () => {
+  if (!instagramPopup || sessionStorage.getItem("adriazola-instagram-popup-dismissed") === "true") return;
+  instagramPopupPreviousFocus = document.activeElement;
+  instagramPopup.hidden = false;
+  instagramPopup.setAttribute("aria-hidden", "false");
+  document.body.classList.add("instagram-popup-open");
+  requestAnimationFrame(() => {
+    instagramPopup.classList.add("is-open");
+    instagramPopupClose?.focus();
+  });
+};
+
+const closeInstagramPopup = () => {
+  if (!instagramPopup || instagramPopup.hidden) return;
+  instagramPopup.classList.remove("is-open");
+  instagramPopup.setAttribute("aria-hidden", "true");
+  document.body.classList.remove("instagram-popup-open");
+  sessionStorage.setItem("adriazola-instagram-popup-dismissed", "true");
+  window.setTimeout(() => { instagramPopup.hidden = true; }, 330);
+  instagramPopupPreviousFocus?.focus?.();
+};
 
 const setText = (selector, value) => {
   const elements = document.querySelectorAll(selector);
@@ -609,6 +665,15 @@ const applyLanguage = (language, updateUrl = false) => {
   setText(".hours div:nth-child(3) b", t.visit.closed);
   setLeadingText(".visit .button", t.visit.button);
 
+  setText(".instagram-popup-kicker span", t.instagram.kicker);
+  setHtml(".instagram-popup-copy h2", t.instagram.title);
+  setText(".instagram-popup-copy p", t.instagram.copy);
+  setLeadingText(".instagram-popup-cta", t.instagram.cta);
+  setText(".instagram-popup-copy > small", t.instagram.note);
+  instagramHeaderLink?.setAttribute("aria-label", t.instagram.header);
+  instagramPopupClose?.setAttribute("aria-label", t.instagram.close);
+  instagramPopupBackdrop?.setAttribute("aria-label", t.instagram.close);
+
   setText(".footer-brand small", t.footer.tag);
   setText(".footer-links a", t.footer.links);
   setText(".footer-bottom > span:nth-child(2)", t.footer.place);
@@ -686,8 +751,19 @@ document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") {
     languagePicker?.classList.remove("open");
     languageCurrent?.setAttribute("aria-expanded", "false");
+    closeInstagramPopup();
   }
 });
+
+instagramPopupClose?.addEventListener("click", closeInstagramPopup);
+instagramPopupBackdrop?.addEventListener("click", closeInstagramPopup);
+instagramPopupCard?.addEventListener("click", (event) => {
+  if (event.target.closest("a, button")) return;
+  const link = instagramPopupCard.dataset.instagramLink;
+  if (link) window.open(link, "_blank", "noopener,noreferrer");
+});
+
+instagramPopupTimer = window.setTimeout(showInstagramPopup, 6500);
 
 quoteForm?.addEventListener("submit", (event) => {
   event.preventDefault();
