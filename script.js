@@ -508,7 +508,7 @@ let instagramPopupTimer;
 let instagramPopupPreviousFocus;
 
 const showInstagramPopup = () => {
-  if (!instagramPopup || sessionStorage.getItem("adriazola-instagram-popup-dismissed") === "true") return;
+  if (new URLSearchParams(location.search).has("producto") || document.querySelector("dialog[open]") || !instagramPopup || sessionStorage.getItem("adriazola-instagram-popup-dismissed") === "true") return;
   instagramPopupPreviousFocus = document.activeElement;
   instagramPopup.hidden = false;
   instagramPopup.setAttribute("aria-hidden", "false");
@@ -580,7 +580,7 @@ const applyLanguage = (language, updateUrl = false) => {
   document.querySelector('meta[name="twitter:description"]')?.setAttribute("content", t.seo.ogDescription);
 
   setText(".brand small", t.brandTag);
-  setText("nav > a:not(.nav-cta)", t.nav);
+  setText("nav > a:not(.nav-cta):not(.catalog-nav)", t.nav);
   setText("nav .nav-cta", t.navCta);
 
   setText(".hero .eyebrow", t.hero.eyebrow);
@@ -803,3 +803,8 @@ const initialLanguage = translations[languageFromUrl]
       : "es";
 
 applyLanguage(initialLanguage);
+
+// Mantiene legible la navegación sobre el catálogo y las secciones claras.
+const updateHeaderContrast = () => document.querySelector('.site-header')?.classList.toggle('is-scrolled', window.scrollY > 80);
+window.addEventListener('scroll', updateHeaderContrast, { passive: true });
+updateHeaderContrast();
