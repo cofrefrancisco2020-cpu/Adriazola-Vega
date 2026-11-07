@@ -10,6 +10,8 @@ La página contiene únicamente la clave publicable. No se incorporaron al repos
 
 ## Límites
 
+Se cargaron dos productos editables y eliminables en Supabase: transmisión y suspensión 4x4. Ambos están identificados como ejemplos, sin precio y sin disponibilidad para venta. Sus dos fotografías WebP ocupan 489.582 bytes en total. Se pueden reemplazar o eliminar desde Administración después de completar el acceso con autenticador.
+
 - 100 productos, incluidos borradores, y 20 categorías.
 - Una fotografía por producto.
 - 400 KiB por imagen almacenada y un máximo de 120 imágenes, incluidas las pendientes de limpieza. Menos de 47 MiB de fotografías en total.
