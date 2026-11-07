@@ -26,6 +26,10 @@
   <link rel="icon" href="./assets/logo-adriazola-4wd.webp">
   <link rel="preload" as="image" href="./assets/07-vista-general-taller.webp" type="image/webp">
   <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./catalog.css">
+  <script src="./config.js" defer></script>
+  <script src="./vendor/supabase.js" defer></script>
+  <script type="module" src="./catalog.js"></script>
   <script src="./script.js" defer></script>
   <script type="application/ld+json">
   {
@@ -122,6 +126,7 @@
         <a href="#especialidad">Especialidad</a>
         <a href="#opiniones">Opiniones</a>
         <a href="#contacto">Contacto</a>
+        <a class="catalog-nav" href="#catalogo">Catálogo</a>
         <a class="nav-cta" href="#cotizar">Cotizar trabajo</a>
       </nav>
       <div class="header-actions">
@@ -223,6 +228,16 @@
         </aside>
         <a class="button primary emissions-cta reveal" href="https://wa.me/56984484274?text=Hola%2C%20quisiera%20consultar%20por%20un%20diagn%C3%B3stico%20de%20sistema%20DPF%20o%20AdBlue." target="_blank" rel="noreferrer">Consultar por DPF o AdBlue <span>↗</span></a>
       </div>
+    </section>
+
+    <section class="catalog-section section" id="catalogo" aria-labelledby="catalog-title">
+      <div class="catalog-heading"><div><p class="kicker" id="catalog-kicker">Repuestos · equipamiento · accesorios</p><h2 id="catalog-title">Encuentra lo que<br>tu vehículo necesita.</h2></div><p id="catalog-intro">Explora nuestros productos y consulta disponibilidad o compatibilidad directamente con el taller.</p></div>
+      <div class="catalog-tools"><input type="search" id="catalog-search" aria-label="Buscar producto o código" placeholder="Buscar producto o código…"><select id="catalog-category" aria-label="Filtrar por categoría"><option value="">Todas las categorías</option></select></div>
+      <div class="catalog-meta"><p id="catalog-count" aria-live="polite">Cargando catálogo…</p><button id="catalog-clear" type="button" hidden>Limpiar filtros</button></div>
+      <p id="catalog-announcement" class="catalog-announcement" role="status"></p>
+      <div id="catalog-grid" class="catalog-grid" aria-busy="true"></div>
+      <p id="catalog-note" class="catalog-note">Confirma disponibilidad, compatibilidad y precio final con el taller. La compra se coordina por WhatsApp.</p>
+      <noscript><p>Activa JavaScript para ver los productos o <a href="https://wa.me/56984484274">consulta por WhatsApp</a>.</p></noscript>
     </section>
 
     <section class="work section" id="proyectos">
@@ -337,7 +352,7 @@
     <footer>
       <div class="footer-brand"><img src="./assets/logo-adriazola-4wd.webp" alt="Logo Adriazola 4WD"><span><strong>ADRIAZOLA 4WD</strong><small>Servicio técnico · repuestos · equipamiento</small></span></div>
       <div class="footer-links"><a href="#servicios">Servicios</a><a href="#proyectos">Trabajos</a><a href="#contacto">Contacto</a></div>
-      <div class="footer-bottom"><span>© <span id="year"></span> Adriazola 4WD</span><span>Coyhaique · Patagonia chilena</span></div>
+      <div class="footer-bottom"><span>© <span id="year"></span> Adriazola 4WD</span><span>Coyhaique · Patagonia chilena</span><a class="admin-entry" href="./admin.html">Administración</a></div>
     </footer>
     <a class="floating-whatsapp" href="https://wa.me/56984484274?text=Hola%2C%20quisiera%20cotizar%20un%20servicio%20para%20mi%20veh%C3%ADculo." target="_blank" rel="noreferrer" aria-label="Cotizar por WhatsApp">WA <span>Cotizar</span></a>
   </main>
@@ -362,5 +377,9 @@
       </div>
     </section>
   </div>
+  <dialog id="product-detail" aria-labelledby="detail-title">
+    <button id="detail-close" class="detail-close" type="button" aria-label="Cerrar producto">×</button>
+    <div class="detail-layout"><div id="detail-image"></div><div><p id="detail-category" class="catalog-category-name"></p><h2 id="detail-title"></h2><p id="detail-description"></p><p id="detail-sku"></p><strong id="detail-price"></strong><span id="detail-stock" class="catalog-stock"></span><a id="detail-whatsapp" class="catalog-ask" target="_blank" rel="noopener noreferrer">Consultar por WhatsApp ↗</a><p id="detail-note"></p></div></div>
+  </dialog>
 </body>
 </html>

@@ -1,45 +1,50 @@
-# Adriazola & Vegas — versión 1
+# Adriazola 4WD · versión 11
 
-Sitio web estático para el taller mecánico Adriazola & Vegas de Coyhaique.
+Catálogo autogestionable integrado sobre la versión 10 del escritorio. Conserva la página del taller y sus idiomas español, inglés y alemán. El panel se usa en español.
 
-## Archivos
+**Para comenzar:** lee [GUIA-CONEXION.md](GUIA-CONEXION.md).
 
-- `index.html`: contenido y estructura.
-- `styles.css`: diseño responsive y animaciones.
-- `script.js`: menú móvil, formulario de WhatsApp y apariciones al hacer scroll.
-- `brief-marca.md`: investigación, fuentes y decisiones.
-- `vercel.json`: configuración básica para Vercel.
-- `assets/`: todos los recursos finales, sin subcarpetas.
+**Para Pablo y los editores:** [MANUAL-DEL-TALLER.md](MANUAL-DEL-TALLER.md).
 
-## Abrir localmente
+## Incluye
 
-Puede abrirse directamente con doble clic en `index.html`. Para probar mapa,
-animaciones y enlaces en condiciones similares a producción, conviene usar un
-servidor local:
+- Catálogo público con búsqueda, categorías, ficha del producto y consulta por WhatsApp.
+- Panel con correo, contraseña y código TOTP obligatorio; productos y categorías, borradores, stock, precios en CLP, orden por arrastre y flechas, y movimiento entre categorías.
+- Conversión automática de JPG/PNG/WebP a WebP de hasta 400 KB y 1600 px.
+- SQL de instalación, alta explícita de administradores y verificación de permisos.
+- Límite de 100 productos, 20 categorías y 120 imágenes aplicado en el servidor. Cada imagen admite hasta 400 KiB.
+- Demostración sin conexión en `admin.html?demo=1`; se deshabilita si existe una conexión válida. Sus cambios se borran al recargar.
+- Biblioteca oficial `@supabase/supabase-js` 2.119.0 incluida localmente. El sitio no descarga código de un CDN al abrirse.
 
-```bash
-npx serve .
+## Probar localmente
+
+Abre `ABRIR-VISTA-PREVIA.cmd` o ejecuta con Node.js 22 o posterior:
+
+```text
+node preview.mjs
 ```
 
-## Subir a GitHub
+Página: `http://127.0.0.1:4173/`.
 
-1. Crear un repositorio vacío.
-2. Subir el contenido de esta carpeta `version 1` a la raíz del repositorio.
-3. Confirmar que `index.html` quede en la raíz.
+Panel conectado: `http://127.0.0.1:4173/admin.html`. El modo de ejemplo queda deshabilitado mientras exista una conexión válida.
 
-## Desplegar en Vercel
+El servidor escucha solo en este equipo. El sitio publicado es estático y no requiere Node.js ni compilación en el hosting.
 
-1. En Vercel, elegir **Add New → Project**.
-2. Importar el repositorio de GitHub.
-3. Seleccionar **Framework Preset: Other**.
-4. Dejar vacío el comando de compilación.
-5. Usar `.` como directorio de salida si Vercel lo solicita.
-6. Pulsar **Deploy**.
+## Pruebas de desarrollo
 
-La web no necesita instalar dependencias ni ejecutar una compilación.
+Con Node.js 22 o posterior:
 
-## Fotografías
+```text
+npm install
+npm test
+```
 
-Se utilizaron fotografías reales del taller y su trabajo. Las imágenes marcadas
-con `-ai` fueron tratadas con IA para mejorar luz, nitidez, encuadre y limpieza
-visual. No se crearon reseñas, clientes ni cifras de confianza falsas.
+La única dependencia de desarrollo es PGlite 0.5.15 para ejecutar PostgreSQL localmente. No forma parte de la web publicada. Las pruebas no se conectan a un proyecto real de Supabase ni envían mensajes de WhatsApp.
+
+No agregues contraseñas ni claves privadas al repositorio. `config.js` solo acepta URL y clave pública de Supabase.
+
+## Entrega
+
+Supabase está conectado al proyecto exclusivo `adriazola-4wd`, referencia `nveehecqdefrdncdkpxy`, región São Paulo, organización Perspective ORG, plan Free verificado y costo de proyecto consultado de $0 al mes. El registro público está cerrado. Se requiere una cuenta autorizada y completar TOTP para editar.
+
+La rama de revisión es `catalogo-autogestionable-v11`. Sus despliegues automáticos de Vercel están deshabilitados para evitar publicaciones durante la preparación. Publicar en el dominio es un paso separado. La versión 10 del escritorio permanece intacta.
