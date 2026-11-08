@@ -10,7 +10,15 @@ El proyecto **adriazola-4wd** ya está creado en la organización **Perspective 
 - Registro público y acceso anónimo de cuentas: deshabilitados.
 - El visitante consulta el catálogo sin registrarse. Solo las cuentas autorizadas pueden editar, después de completar el segundo factor.
 
-La página oficial seguirá mostrando la versión anterior hasta que estos archivos se publiquen en el hosting. Crear el proyecto de Supabase no actualiza por sí solo la página oficial.
+La versión inicial del catálogo ya se publicó. Para incorporar la sección de administradores de esta actualización 11.1, el hosting debe servir también sus archivos nuevos. Crear o actualizar Supabase no publica por sí solo los archivos del sitio.
+
+## Altas siguientes y cambio de teléfono
+
+Con `04-administradores.sql` y la función `catalog-activate` instaladas, el administrador entra a **Administradores y ayuda** para crear enlaces privados. La función se despliega con `verify_jwt=false` y valida una invitación secreta propia antes de crear la cuenta, porque el invitado todavía no tiene sesión. Solo el servidor puede ejecutar los procedimientos de activación. Las claves privilegiadas se leen exclusivamente del entorno de Supabase. No se necesita SMTP para este método, y el registro público permanece cerrado.
+
+Para una instalación nueva: ejecuta primero `01-instalar.sql`, autoriza la primera cuenta con `02-autorizar-administrador.sql`, verifica con `03-verificar.sql`, ejecuta `04-administradores.sql` y despliega `supabase/functions/catalog-activate/` con la configuración de `supabase/config.toml`. Revisa `ENTREGA.md` para los límites y la validación de la conexión real.
+
+**Cambiar el teléfono de mi cuenta** mantiene la contraseña y exige verificar el teléfono nuevo antes de retirar los factores anteriores. Cada persona debe usar su propia cuenta. El correo automático de recuperación continúa deshabilitado; no sustituye el segundo factor.
 
 ## Dónde se crea el usuario administrador
 

@@ -1,6 +1,8 @@
 import {api,client} from './catalog-api.js';
 import {el,imageNode,PLACEHOLDER,money,normalize,validateProduct,optimizeImage,friendlyError} from './catalog-core.js';
 import {securityState,enrollAuthenticator,verifyAuthenticator,qrSource} from './catalog-security.js';
+import {attachTeam} from './catalog-team.js';
+import {attachPhoneChange} from './catalog-phone.js';
 const $=id=>document.getElementById(id);
 const demo=!client && new URLSearchParams(location.search).get('demo')==='1';
 let backend=api,state={products:[],categories:[],settings:{max_products:100,max_categories:20}},selectedCategory='',editing=null,editingCategory=null;
@@ -8,8 +10,10 @@ let busy=false,dirty=false,photo=null,removeImage=false,photoTicket=0,processing
 let mfaFactorId=null,entryInProgress=false,recovering=false;
 let lastActivity=Number(sessionStorage.getItem('adriazola-last-activity'))||Date.now();
 const toast=(message,error=false)=>{ $('toast').textContent=message;$('toast').classList.toggle('error',error);$('toast').hidden=false;clearTimeout(toast.timer);toast.timer=setTimeout(()=>$('toast').hidden=true,error?12000:5000);};
+const team=attachTeam({client,toast,demo});
+const phone=attachPhoneChange({client,demo,onComplete:()=>setAccess('Teléfono actualizado. Inicia sesión y usa el código del nuevo teléfono.')});
 function clearMfa(){mfaFactorId=null;$('mfa-code').value='';$('mfa-secret').value='';$('mfa-qr').removeAttribute('src');$('mfa-error').textContent='';$('mfa-enrollment').hidden=true;}
-const setAccess=message=>{clearMfa();recovering=false;$('security-card').hidden=true;$('dashboard').hidden=true;$('access').hidden=false;$('logout').hidden=true;$('access-message').textContent=message||'';state.products=[];state.categories=[];for(const d of document.querySelectorAll('dialog[open]'))d.close();};
+const setAccess=message=>{clearMfa();team.clear();phone.clear();recovering=false;$('security-card').hidden=true;$('dashboard').hidden=true;$('access').hidden=false;$('logout').hidden=true;$('access-message').textContent=message||'';state.products=[];state.categories=[];for(const d of document.querySelectorAll('dialog[open]'))d.close();};
 function activity(){lastActivity=Date.now();sessionStorage.setItem('adriazola-last-activity',String(lastActivity));}
 async function expire(){await client?.auth.signOut({scope:'local'});setAccess('La sesión se cerró por inactividad. Inicia sesión otra vez.');}
 function lock(value){busy=value;$('dashboard').classList.toggle('is-busy',value);$('product-list').setAttribute('aria-busy',String(value));document.querySelectorAll('#dashboard button,#dashboard select,#category-manager button').forEach(b=>b.disabled=value);if(!value)render();}
@@ -150,7 +154,7 @@ async function enterDashboard(){
     if(!await backend.isAdmin())throw new Error('NO_AUTORIZADO');
     clearMfa();$('security-card').hidden=true;$('password').value='';
     if(recovering){$('access').hidden=true;$('dashboard').hidden=true;$('logout').hidden=false;if(!$('password-dialog').open)$('password-dialog').showModal();activity();return;}
-    await refresh();$('access').hidden=true;$('dashboard').hidden=false;$('logout').hidden=demo;activity();
+    await refresh();$('access').hidden=true;$('dashboard').hidden=false;$('logout').hidden=demo;activity();team.load();
   }finally{entryInProgress=false;}
 }
 $('mfa-enroll').addEventListener('click',async()=>{
@@ -172,6 +176,11 @@ $('login-form').addEventListener('submit',async e=>{
 $('logout').addEventListener('click',async()=>{
   const {error}=await client.auth.signOut({scope:'local'});if(error)toast('La sesión se cerrará localmente. Si cambiaste de equipo, revisa tus sesiones en Supabase.',true);
   setAccess('Sesión cerrada.');
+});
+for(const [tab,panel] of [['tab-catalog','catalog-workspace'],['tab-team','team-section']])$(tab).addEventListener('click',()=>{
+  const isCatalog=panel==='catalog-workspace';$('catalog-workspace').hidden=!isCatalog;$('team-section').hidden=isCatalog;
+  $('tab-catalog').setAttribute('aria-pressed',String(isCatalog));$('tab-team').setAttribute('aria-pressed',String(!isCatalog));$('new-product').hidden=!isCatalog;
+  if(!isCatalog)team.load();
 });
 $('forgot-password').addEventListener('click',async()=>{
   if(!$('email').reportValidity())return;const btn=$('forgot-password');btn.disabled=true;
