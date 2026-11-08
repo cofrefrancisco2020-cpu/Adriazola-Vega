@@ -53,6 +53,6 @@ La comprobación automática de contraseñas filtradas permanece desactivada por
 
 ## Publicación
 
-La rama de revisión es **catalogo-autogestionable-v11** en **cofrefrancisco2020-cpu/Adriazola-Vega**. Se deshabilitaron sus despliegues automáticos de Vercel para preparar la revisión sin publicaciones intermedias. La publicación en el dominio oficial se gestiona aparte.
+La versión inicial del catálogo se incorporó desde **catalogo-autogestionable-v11**. La actualización de administradores 11.1 se prepara en **administradores-invitaciones**, en **cofrefrancisco2020-cpu/Adriazola-Vega**. Sus despliegues automáticos de Vercel están deshabilitados para evitar publicaciones intermedias; se publica al incorporar la actualización completa a la rama principal.
 
-La versión 10 del escritorio permanece intacta. Para entrar desde la página pública es necesario que el hosting sirva estos archivos nuevos; el alta de Supabase por sí sola no añade el enlace Administración al sitio anterior.
+La versión 10 del escritorio permanece intacta. El hosting debe servir todos los archivos de esta actualización para mostrar la sección Administradores y ayuda; actualizar Supabase por sí solo no modifica la interfaz pública.
