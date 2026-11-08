@@ -1,0 +1,4 @@
+[functions.catalog-activate]
+# Autenticación propia: invitación secreta de 256 bits, un uso y 24 horas.
+# No acepta registro abierto ni permite modificar cuentas existentes.
+verify_jwt = false
