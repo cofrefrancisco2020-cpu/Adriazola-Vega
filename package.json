@@ -1,6 +1,6 @@
 {
   "name":"adriazola-4wd-catalogo",
-  "version":"11.0.0",
+  "version":"11.1.0",
   "private":true,
   "type":"module",
   "scripts":{"preview":"node preview.mjs","test":"node --test tests/*.test.mjs"},

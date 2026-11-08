@@ -1,7 +1,7 @@
 {
   "cleanUrls": false,
   "trailingSlash": false,
-  "git": { "deploymentEnabled": { "catalogo-autogestionable-v11": false } },
+  "git": { "deploymentEnabled": { "catalogo-autogestionable-v11": false, "administradores-invitaciones": false } },
   "headers": [
     {"source":"/(.*)","headers":[
       {"key":"X-Content-Type-Options","value":"nosniff"},
@@ -11,6 +11,7 @@
       {"key":"Content-Security-Policy","value":"default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: blob: https://*.supabase.co; connect-src 'self' https://*.supabase.co; frame-src https://www.google.com https://maps.google.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'"}
     ]},
     {"source":"/admin.html","headers":[{"key":"Cache-Control","value":"no-store"},{"key":"X-Robots-Tag","value":"noindex, nofollow, noarchive"}]},
+    {"source":"/activar.html","headers":[{"key":"Cache-Control","value":"no-store"},{"key":"Referrer-Policy","value":"no-referrer"},{"key":"X-Robots-Tag","value":"noindex, nofollow, noarchive"}]},
     {"source":"/config.js","headers":[{"key":"Cache-Control","value":"no-store"}]}
   ]
 }

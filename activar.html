@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow,noarchive"><meta name="referrer" content="no-referrer">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self' https://*.supabase.co; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <title>Activar acceso | Adriazola 4WD</title>
+  <link rel="icon" href="./assets/logo-adriazola-4wd.webp"><link rel="stylesheet" href="./admin.css">
+  <script src="./config.js" defer></script><script src="./vendor/supabase.js" defer></script><script type="module" src="./activar.js"></script>
+</head>
+<body>
+  <header class="admin-header"><a class="admin-brand" href="./index.html"><img src="./assets/logo-adriazola-4wd.webp" alt="Adriazola 4WD"><span><strong>ADRIAZOLA 4WD</strong><small>Acceso del taller</small></span></a></header>
+  <main><section class="access-card activation-card" aria-labelledby="activation-title">
+    <p class="eyebrow">Invitación privada · paso 1 de 2</p><h1 id="activation-title">Tu propio<br>acceso.</h1>
+    <p>Elige una contraseña para la cuenta que autorizaron con tu correo. Después vincularás tu propio teléfono para generar los códigos de seguridad.</p>
+    <form id="activation-form">
+      <label>Elige tu contraseña<input id="activation-password" type="password" minlength="12" maxlength="128" required autocomplete="new-password" aria-describedby="password-guide"></label>
+      <small id="password-guide">Al menos 12 caracteres. Usa varias palabras y un número; evita reutilizar la contraseña de tu correo.</small>
+      <label>Repite tu contraseña<input id="activation-repeat" type="password" minlength="12" maxlength="128" required autocomplete="new-password"></label>
+      <button id="activation-submit" type="submit" class="btn primary wide">Crear mi cuenta y continuar →</button>
+    </form>
+    <p id="activation-message" class="form-error" role="status" aria-live="polite"></p>
+    <p id="activation-complete" hidden>Tu cuenta está creada. <a href="./admin.html">Inicia sesión aquí</a> con el correo al que te enviaron la invitación y la contraseña que elegiste.</p>
+    <details class="help-detail"><summary>¿Qué pasará después?</summary><ol><li>Entrarás al panel con tu nueva cuenta.</li><li>Verás un QR para vincular tu iPhone u otra aplicación autenticadora.</li><li>Escribirás sus seis números y podrás administrar el catálogo.</li></ol><p>El enlace caduca en 24 horas y sirve una sola vez. Si caducó, solicita otro a quien te invitó.</p></details>
+    <p class="hint">Abre esta invitación solo si reconoces a quien te la envió. No compartas su enlace, tu contraseña ni el QR de seguridad.</p>
+  </section></main>
+</body></html>

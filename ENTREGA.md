@@ -23,11 +23,25 @@ El plan Free puede restringir el servicio al agotar cuotas y pausar proyectos in
 
 ## Verificación
 
-**28 pruebas locales aprobadas**, incluidas autenticación por segundo factor, revocación, borradores, ediciones antiguas, cuotas de productos y categorías y rechazo de la imagen 121.
+**44 pruebas locales aprobadas**, incluidas autenticación por segundo factor, revocación, borradores, ediciones antiguas, cuotas de productos y categorías, rechazo de la imagen 121, invitaciones privadas y cambio seguro de teléfono.
 
 La conexión contra Supabase real permitió leer categorías y productos publicados. Rechazó, con respuesta 401, cuatro solicitudes de un visitante: consultar administradores, escribir directamente en tablas, ejecutar una edición y llamar a la comprobación interna de administrador.
 
 Las verificaciones no incluyen el uso de la contraseña real ni la configuración del teléfono del administrador. Esas acciones deben realizarlas las personas autorizadas directamente en la interfaz.
+
+## Administradores y ayuda (11.1)
+
+El panel permite a cualquier administrador con MFA verificado crear un enlace privado para otro correo, copiarlo y enviarlo personalmente. No envía correos ni WhatsApp automáticamente. El destinatario elige su contraseña y configura su propio autenticador. Registro público deshabilitado; no se usa un proveedor de correo de pago.
+
+Las invitaciones duran 24 horas y se consumen una sola vez. Solo se guarda su hash SHA-256; el secreto de 256 bits viaja en el fragmento del enlace, se retira de la barra al abrir y se conserva solo en la pestaña hasta activar. El enlace concede acceso a la cuenta indicada: se debe enviar únicamente a la persona autorizada. No verifica la entrega de un correo por SMTP.
+
+Se limitan a 10 las plazas de administradores, incluyendo invitaciones pendientes; 20 invitaciones por 24 horas; 20 cuentas de Auth incluyendo altas interrumpidas; 10 intentos de activación por minuto y 100 por 24 horas en todo el proyecto. Cada invitación permite hasta 5 intentos cada 15 minutos. El historial de invitaciones se limpia al crear nuevas altas, después de 30 días. Un ataque puede agotar temporalmente estas cuotas y bloquear nuevas altas; no desbloquea el catálogo ni permite editar.
+
+La función de servidor `catalog-activate` autentica cada alta con la invitación secreta y comprueba su vigencia y autorización. El control JWT de la puerta de entrada está deshabilitado porque el invitado todavía no tiene cuenta; no es una función de registro abierto. Las claves privilegiadas solo se leen del entorno privado de Supabase. No se guardan contraseñas, tokens de sesión ni enlaces secretos en registros de aplicación. Supabase conserva sus registros operativos normales.
+
+La migración `04-administradores.sql` y la función de servidor están instaladas. Las llamadas reales de visitantes a las funciones de equipo y de activación privada devolvieron 401, y la función de activación rechazó un enlace inválido sin crear cuentas. Los flujos completos de alta y cambio de teléfono se verificaron con cuentas ficticias locales; los teléfonos y contraseñas reales requieren a sus titulares.
+
+La opción **Cambiar el teléfono de mi cuenta** comprueba el código del nuevo teléfono antes de retirar los factores anteriores de esa cuenta. Conserva la contraseña. No se retiró el autenticador real existente durante el desarrollo. El panel incluye instrucciones para invitar, configurar Contraseñas en iPhone, entregar una cuenta a su dueño y quitar permisos.
 
 ## Revisión de seguridad
 

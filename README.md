@@ -47,4 +47,10 @@ No agregues contraseñas ni claves privadas al repositorio. `config.js` solo ace
 
 Supabase está conectado al proyecto exclusivo `adriazola-4wd`, referencia `nveehecqdefrdncdkpxy`, región São Paulo, organización Perspective ORG, plan Free verificado y costo de proyecto consultado de $0 al mes. El registro público está cerrado. Se requiere una cuenta autorizada y completar TOTP para editar.
 
-La rama de revisión es `catalogo-autogestionable-v11`. Sus despliegues automáticos de Vercel están deshabilitados para evitar publicaciones durante la preparación. Publicar en el dominio es un paso separado. La versión 10 del escritorio permanece intacta.
+La rama de revisión de la actualización 11.1 es `administradores-invitaciones`. Sus despliegues automáticos de Vercel están deshabilitados para evitar publicaciones intermedias. La versión 10 del escritorio permanece intacta.
+
+## Administradores y ayuda
+
+Cada administrador que complete MFA puede crear invitaciones privadas para otras personas, hasta 10 plazas incluidas las pendientes. Los enlaces duran 24 horas y sirven una sola vez. Cada invitado elige su contraseña y configura su propio teléfono. No se envían mensajes automáticamente ni se utiliza un proveedor SMTP. Las cuentas no se registran públicamente.
+
+El panel incluye instrucciones para Contraseñas de iPhone y una opción para cambiar el teléfono conservando la contraseña. El código del teléfono nuevo se verifica antes de retirar los anteriores. La migración y la función de servidor de esta actualización están en `supabase/04-administradores.sql` y `supabase/functions/catalog-activate/`. Consulta `GUIA-CONEXION.md` y `ENTREGA.md` para instalación, límites, pruebas y decisiones de seguridad.

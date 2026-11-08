@@ -6,7 +6,37 @@ Al pie de la página, pulsa **Administración**. También puedes guardar la dire
 
 La primera vez, pulsa **Configurar aplicación autenticadora**, escanea el QR con tu teléfono y escribe el código de seis números. El QR y su clave son privados: no los compartas ni los envíes por chat. Conserva un respaldo seguro del acceso a tu autenticador.
 
-Si olvidas tu contraseña o pierdes el teléfono, contacta al propietario de la página. El envío automático de correos de recuperación no está habilitado, para no depender de un servicio adicional. La cuenta inicial se crea en Supabase; la página pública no permite registrar administradores.
+Si olvidas tu contraseña o pierdes el teléfono, contacta al propietario de la página. El envío automático de correos de recuperación no está habilitado, para no depender de un servicio adicional. La cuenta inicial se crea en Supabase; las siguientes se agregan por invitación privada desde el panel.
+
+## Agregar otra persona al panel
+
+1. Entra con tu cuenta y tu código. Abre **Administradores y ayuda**.
+2. Escribe el correo de la persona y confirma que podrá editar e invitar a otros administradores.
+3. Pulsa **Crear enlace de invitación** y **Copiar enlace**.
+4. Pégalo en tu correo o WhatsApp y envíaselo solo a esa persona. El panel no envía mensajes automáticamente.
+5. La persona debe abrirlo antes de 24 horas, elegir su contraseña y configurar su propio teléfono. El enlace se usa una sola vez.
+
+Hay hasta 10 plazas incluyendo invitaciones pendientes. Si pierdes un enlace, cancela la invitación y crea otra. No compartas cuentas ni contraseñas entre personas. Cualquier administrador con su código verificado puede invitar.
+
+## Configurar Contraseñas en iPhone
+
+1. Deja el QR en el computador y escanéalo con la cámara del iPhone de quien usará la cuenta.
+2. Abre **Contraseñas** y desbloquea con Face ID.
+3. Busca **mecanicadriazola.cl** con el correo correcto. Si no existe, pulsa **+** y guarda el sitio, el correo y la contraseña del catálogo.
+4. Selecciona esa cuenta para asociar el código de verificación.
+5. Escribe sus seis números en el computador y pulsa **Verificar y entrar**. Los números cambian: usa el código actual.
+
+No es la contraseña del correo ni el código de desbloqueo del teléfono. Las instrucciones también aparecen al configurar el QR y dentro de **Administradores y ayuda**.
+
+## Cambiar el teléfono conservando la contraseña
+
+1. Entra en la cuenta que cambiará de teléfono, con su contraseña y su código actual.
+2. Abre **Administradores y ayuda → Cambiar el teléfono de mi cuenta**.
+3. La persona dueña de esa cuenta debe escanear el QR nuevo con su propio teléfono.
+4. Escribe su nuevo código. Al verificarlo, se retiran los autenticadores anteriores de esa cuenta y se cierra la sesión.
+5. Vuelve a entrar con la misma contraseña y el código del teléfono nuevo.
+
+El código anterior funciona hasta verificar el nuevo. Si se interrumpe la conexión después de verificarlo, conserva el nuevo autenticador y sigue las indicaciones para terminar de retirar los anteriores. Si perdiste todos los códigos, contacta al propietario del proyecto.
 
 ## Agregar un producto
 
